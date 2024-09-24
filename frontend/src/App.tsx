@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GridPattern from "./components/magicui/grid-pattern";
 import Navbar from "./components/Navbar";
@@ -8,8 +8,6 @@ import Meteors from "./components/magicui/meteors";
 import Chat from "./pages/Chat/Chat";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
       <div className="flex flex-col items-center">

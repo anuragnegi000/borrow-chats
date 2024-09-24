@@ -1,7 +1,6 @@
-import BlurIn from "@/components/magicui/blur-in";
+
 import { MultiStepLoaderDemo } from "@/components/multi-step-loader";
-import { Cover } from "@/components/ui/cover";
-import React from "react";
+import { Cover } from "@/components/ui/cover"
 
 type Props = {};
 

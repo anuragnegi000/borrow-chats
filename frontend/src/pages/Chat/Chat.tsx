@@ -1,8 +1,5 @@
 import { CardWithForm } from "@/components/CardDemo";
 import ShineBorder from "@/components/magicui/shine-border";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import React from "react";
 
 type Props = {};
 
