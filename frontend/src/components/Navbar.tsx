@@ -4,17 +4,12 @@ import * as React from "react";
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "../components/ui/navbar";
 
 import { cn } from "@/lib/utils";
 
-const components: { title: string; href: string; description: string }[] = [
+const [] = [
   {
     title: "Alert Dialog",
     href: "https://ui.shadcn.com/docs/primitives/alert-dialog",
