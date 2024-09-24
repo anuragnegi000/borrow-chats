@@ -1,9 +1,8 @@
 import { CardWithForm } from "@/components/CardDemo";
 import ShineBorder from "@/components/magicui/shine-border";
 
-type Props = {};
 
-const Chat = (props: Props) => {
+const Chat = () => {
   return (
     <div className="h-full w-screen flex flex-col items-center justify-center">
       <ShineBorder

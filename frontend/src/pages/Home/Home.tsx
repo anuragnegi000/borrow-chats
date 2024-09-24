@@ -2,9 +2,8 @@
 import { MultiStepLoaderDemo } from "@/components/multi-step-loader";
 import { Cover } from "@/components/ui/cover"
 
-type Props = {};
 
-const Home = (props: Props) => {
+const Home = () => {
   return (
     <div className="h-[40rem] w-full flex flex-col justify-center items-center">
       <div className="flex flex-col justify-center items-center gap-4">
