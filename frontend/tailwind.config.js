@@ -6,8 +6,8 @@ const {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"], // dark mode configuration
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,ts,tsx}"], // merged content paths
+  darkMode: ["class"], // merged dark mode configuration
   theme: {
     extend: {
       animation: {
@@ -86,7 +86,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"), // including the animation plugin
+    require("tailwindcss-animate"), // include the animation plugin
     addVariablesForColors, // adding the custom colors as CSS variables
   ],
 };

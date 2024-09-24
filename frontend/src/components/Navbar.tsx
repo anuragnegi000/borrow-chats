@@ -54,7 +54,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function Navbar() {
   return (
-    <NavigationMenu className="z-[5] mt-10 flex justify-center w-[50rem] m750:max-w-[300px]">
+    <NavigationMenu className="z-[5] mt-10 flex justify-center rounded-3xl w-[50rem] m750:max-w-[300px]">
       <NavigationMenuList className="m750:max-w-[300px]">
         <NavigationMenuItem>
           <NavigationMenuTrigger className="m750:max-w-[80px] m750:text-xs">

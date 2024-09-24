@@ -1,6 +1,6 @@
 
 import { MultiStepLoaderDemo } from "@/components/multi-step-loader";
-import { Cover } from "@/components/ui/cover"
+import { Cover } from "@/components/ui/cover";
 
 
 const Home = () => {
