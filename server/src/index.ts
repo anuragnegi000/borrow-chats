@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import UserRouter from './routers/UserRouter';
 import MessageRouter from './routers/MessageRouter';
 import mongoConnect from './db';
-import { initialiseSocket } from './socket/socket';
 import {server} from "../src/socket/socket";
 
 const express=require('express');
@@ -11,7 +10,6 @@ const port=3000;
 
 mongoConnect();
 
-initialiseSocket();
 
 app.use(express.json());
 

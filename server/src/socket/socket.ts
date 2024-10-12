@@ -3,35 +3,48 @@ import { DefaultEventsMap, Server } from "socket.io";
 import express from "express";
 import { Request, Response } from "express";
 import { Message } from "../models/MessageModel";
+import { randomInt } from "crypto";
 
 const app = express();
 const server = http.createServer(app);
 
-let io: Server<any>;
+type Message = {
+  message: string;
+  room: string;
+};
 
-export function initialiseSocket() {
-  io = new Server(server, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"],
-    },
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
+
+app.use(express.json());
+
+io.on("connection", (socket) => {
+  console.log("User Connected", socket.id);
+
+  socket.on('createroom',()=>{
+    const roomID = randomInt(100000,999999).toString();
+    socket.join(roomID);
+    socket.emit("roomcreated",roomID);
+    console.log("Room created",roomID);
+  })
+
+  socket.on('joinroom',(roomID)=>{
+    socket.join(roomID);
+    socket.emit("roomjoined",roomID);
+    console.log("Room joined",roomID);
+  })
+
+  socket.on("sendmessage", ({roomname,message}) => {
+    console.log("data reveived", message);
+    io.to(roomname).emit("receivemessage",{message,roomname});
+    console.log(`Message sent to room ${roomname} : ${message}`);
   });
-  io.on("connection", (socket) => {
-    console.log("User connected", socket.id);
-
-    socket.on("disconnect", () => {
-      console.log("User disconnected", socket.id);
-    });
+  socket.on("disconnect", () => {
+    console.log("User Disconnected");
   });
-  return io;
-}   
+});
 
-
-export function getSocketInstance(){
-    if(!io){
-        return initialiseSocket();
-    }
-    return io;
-}
-
-export {server};
+export { server };
