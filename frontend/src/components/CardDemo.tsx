@@ -5,8 +5,43 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+
+const data=[
+  {
+    id:1,
+    title:"Toronto",
+    description:"Chit chat"   
+  },
+  {
+    id:2,
+    title:"Developers community",
+    description:"Deploy your new project in one-click."   
+  },
+  {
+    id:3,
+    title:"Berkley",
+    description:"Deploy your new project in one-click."   
+  },
+  {
+    id:4,
+    title:"Boston",
+    description:"Deploy your new project in one-click."   
+  },
+  {
+    id:5,
+    title:"Mumbai",
+    description:"Deploy your new project in one-click."   
+  },
+  {
+    id:6,
+    title:"Shibuya",
+    description:"Deploy your new project in one-click."   
+  }
+]
 
 export function CardWithForm() {
+  const navigate = useNavigate();
   return (
     <div
       className="flex flex-col gap-6 absolute h-[500px] z-10 left-20 top-[8rem] overflow-y-scroll"
@@ -16,74 +51,23 @@ export function CardWithForm() {
         msOverflowStyle: "auto",
       }}
     >
-      <Card className="w-[70rem] h-[auto] bg-transparent">
-        <CardHeader className="">
-          <CardTitle className="text-neutral-50">Toronto</CardTitle>
-          <CardDescription className="text-neutral-50">
-            Chit chat
-          </CardDescription>
-          <div className="flex shrink-0 w-10 absolute right-10 justify-end">
-            <Button>Join</Button>
-          </div>
-        </CardHeader>
-      </Card>
+      {data.map((item)=>(
+        <Card className="w-[70rem] h-[auto] bg-transparent">
+          <CardHeader className="">
+            <CardTitle className="text-neutral-50">{item.title}</CardTitle>
+            <CardDescription className="text-neutral-50">
+              {item.description}
+            </CardDescription>
+            <div className="flex shrink-0 w-10 absolute right-10 justify-end">
+              <Button onClick={()=>{
+                  navigate("/chat")
+              }}>Join</Button>
+            </div>
+          </CardHeader>
+        </Card>
+      ))}
 
-      <Card className="w-[70rem] h-[auto] bg-transparent">
-        <CardHeader className="">
-          <CardTitle className="text-neutral-50">Developers community</CardTitle>
-          <CardDescription className="text-neutral-50">
-            Deploy your new project in one-click.
-          </CardDescription>
-          <div className="flex shrink-0 w-10 absolute right-10 justify-end">
-            <Button>Join</Button>
-          </div>
-        </CardHeader>
-      </Card>
-
-      <Card className="w-[70rem] h-[auto] bg-transparent">
-        <CardHeader className="">
-          <CardTitle className="text-neutral-50">Berkley</CardTitle>
-          <CardDescription className="text-neutral-50">
-            Deploy your new project in one-click.
-          </CardDescription>
-          <div className="flex shrink-0 w-10 absolute right-10 justify-end">
-            <Button>Join</Button>
-          </div>
-        </CardHeader>
-      </Card>
-      <Card className="w-[70rem] h-[auto] bg-transparent">
-        <CardHeader className="">
-          <CardTitle className="text-neutral-50">Boston</CardTitle>
-          <CardDescription className="text-neutral-50">
-            Deploy your new project in one-click.
-          </CardDescription>
-          <div className="flex shrink-0 w-10 absolute right-10 justify-end">
-            <Button>Join</Button>
-          </div>
-        </CardHeader>
-      </Card>
-      <Card className="w-[70rem] h-[auto] bg-transparent">
-        <CardHeader className="">
-          <CardTitle className="text-neutral-50">Mumbai</CardTitle>
-          <CardDescription className="text-neutral-50">
-            Deploy your new project in one-click.
-          </CardDescription>
-          <div className="flex shrink-0 w-10 absolute right-10 justify-end">
-            <Button>Join</Button>
-          </div>
-        </CardHeader>
-      </Card>
-      <Card className="w-[70rem] h-[auto] bg-transparent">
-        <CardHeader className="">
-          <CardTitle className="text-neutral-50">Shibuya</CardTitle>
-          <CardDescription className="text-neutral-50">
-            Deploy your new project in one-click.
-          </CardDescription>
-          <div className="flex shrink-0 w-10 absolute right-10 justify-end">
-            <Button>Join</Button>
-          </div>
-        </CardHeader>
-      </Card>
+      
     </div>
   );
 }

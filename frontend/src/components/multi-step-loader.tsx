@@ -20,7 +20,7 @@ export function MultiStepLoaderDemo() {
 
   const handleLoadingComplete = () => {
     setLoading(false);
-    navigate("/chat");
+    navigate("/chats");
   };
 
   return (
