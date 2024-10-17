@@ -25,20 +25,19 @@ const Chats = () => {
       socket?.on("roomcreated",(roomID:string)=>{
         setJoinedRoom(roomID);
         alert(`Room created with name ${roomID}`);
+        navigate(`/chat/${roomID}`);
       })
     
   }
 
   const joinRoom = ()=>{
-    if(roomName?.trim()){
-      socket?.emit("joinroom");
+      socket?.emit("joinroom",roomName);
       socket?.on("roomjoined",(joinedRoomName:string)=>{
         setJoinedRoom(joinedRoomName);
         alert(`Room joined with name ${joinedRoomName}`);
+        navigate(`/chat/${joinedRoomName}`);
       })
-    }else{
-      alert("Please enter a valid room name");
-    }
+    
   }
   
   return (
@@ -81,7 +80,9 @@ const Chats = () => {
                     id="maxHeight"
                     defaultValue=""
                     className="col-span-2 h-8 border border-gray-700 w-full"
+                    onChange={(e) => setRoomName(e.target.value)}
                   />
+                  <Button onClick={joinRoom}>Submit</Button>
                 </div>
               </div>
             </div>
